@@ -26,19 +26,15 @@ class TestRepoClass(unittest.TestCase):
     def getTempFileName(self, deleted=True):
         f = tempfile.NamedTemporaryFile(delete=deleted, prefix='_tmp')
         config_file_path = f.name
-        f.close
-        # global tmp_files
+        f.close        
         tmp_files.append(config_file_path)
         return config_file_path
 
-    def tearDown(self):        
-        # filelist = glob.glob("/tmp/_tmp*")
-        # for f in filelist:
-        #     os.remove(f)
-        # global tmp_files
+    def tearDown(self):                
         for f in tmp_files:
             if os.path.isfile(f):
                 os.remove(f)
+        tmp_files[:] = []
 
     def test_dict_by_default(self):
         __cache_store = cache.get_cache_copy()
