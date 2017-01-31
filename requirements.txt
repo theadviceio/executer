@@ -1,0 +1,10 @@
+pip>=6.1.1
+ansible>=1.5.3
+falcon>=0.3.0
+#pexpect>=3.3
+prospector>=0.10
+pep8>=1.6.2
+coverage>=3.7.1
+requests
+pyyaml
+mock
